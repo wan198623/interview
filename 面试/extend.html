@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拷贝</title>
+</head>
+<script>
+	var person={
+		name:"zhangsan",age:"12",say:function(){
+			alert("say")},son:{name:"lisi",age:"1"}
+	}
+	//浅拷贝，子对象会传址
+	function extend(obj){
+		var newobj={};
+		for(var i in obj){
+			if(typeof obj[i]=="object"){
+			newobj[i]=extend(obj[i]);
+			}else{
+			newobj[i]=obj[i]				
+			}
+		}
+       return newobj;
+	}
+	var obj=extend(person);
+	obj.son.name="zhaoliu";
+	alert(person.son.name)
+
+</script>
+<body>
+</body>
+</html>

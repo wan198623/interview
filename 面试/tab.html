@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+</head>
+<script>
+	window.onload=function(){
+		var title=document.getElementsByTagName("a");
+		var con=document.getElementsByTagName("li");
+		for (var i = 0; i < title.length; i++) {
+			
+			 title[i].index=i;
+			title[i].onmouseover=(function(index){
+				return function(){
+					for (var j = 0; j <con.length; j++) {
+						con[j].style.display="none";
+					};
+				    con[this.index].style.display="block";
+				}
+            })(i)
+		};
+	}
+</script>
+<style>
+.body,ul,li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+	.box{
+		width: 300px;
+		height: 300px;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    bottom: 0;
+	    right: 0;
+	    margin: auto;
+	    border: 1px solid black;
+	}
+	.title{
+		width: 100%;
+		background: #ccc;
+		height: 30px;
+
+	}
+	.title a{
+		display:block;
+		float: left;
+		width: 33.33%;
+		height: 100%;
+		color:#fff;
+		font-size: 18px;
+		text-align: center;
+		line-height: 30px;
+	}
+	.con{
+		width: 100%;
+		height: 270px;
+		color: #000;
+		position: relative;
+	}
+	.con li{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top:0;
+		display:none;
+		font-size: 80px;	
+		text-align:center;
+		line-height: 270px;
+	}
+</style>
+<body>
+	<div class="box">
+		<div class="title">
+			<a href="">1</a>
+			<a href="">2</a>
+			<a href="">3</a>
+		</div>
+		<ul class="con">
+			<li style="background:red;display:block" class="active">1</li>
+			<li style="background:blue">2</li>
+			<li style="background:pink">3</li>
+		</ul>
+	</div>
+</body>
+</html>
